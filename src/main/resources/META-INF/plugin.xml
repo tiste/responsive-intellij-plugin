@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>com.github.tiste.responsiveintellijplugin</id>
-    <name>responsive-intellij-plugin</name>
+    <name>Responsive</name>
     <vendor>tiste</vendor>
 
     <!-- Product and plugin compatibility requirements -->
@@ -8,12 +8,9 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.tiste.responsiveintellijplugin.services.MyApplicationService"/>
-        <projectService serviceImplementation="com.github.tiste.responsiveintellijplugin.services.MyProjectService"/>
-    </extensions>
+        <applicationService serviceImplementation="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsState"/>
 
-    <applicationListeners>
-        <listener class="com.github.tiste.responsiveintellijplugin.listeners.MyProjectManagerListener"
-                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
-    </applicationListeners>
+        <applicationConfigurable parentId="tools" instance="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsConfigurable"
+                                 id="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsConfigurable" displayName="Responsive"/>
+    </extensions>
 </idea-plugin>

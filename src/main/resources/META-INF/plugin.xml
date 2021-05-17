@@ -8,9 +8,16 @@
     <depends>com.intellij.modules.platform</depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <applicationService serviceImplementation="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsState"/>
+        <applicationService
+                serviceImplementation="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsState"/>
+        <applicationService
+                serviceImplementation="com.github.tiste.responsiveintellijplugin.services.ApplicationEditorFontPreferences"/>
+        <applicationService
+                serviceImplementation="com.github.tiste.responsiveintellijplugin.services.WindowProjectService"/>
 
-        <applicationConfigurable parentId="tools" instance="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsConfigurable"
-                                 id="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsConfigurable" displayName="Responsive"/>
+        <applicationConfigurable parentId="tools"
+                                 instance="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsConfigurable"
+                                 id="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsConfigurable"
+                                 displayName="Responsive"/>
     </extensions>
 </idea-plugin>

@@ -13,14 +13,10 @@ import java.util.Map;
 
 @State(
         name = "com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsState",
-        storages = {@Storage("ResponsiveSettingsPlugin.xml")}
+        storages = {@Storage("ResponsiveSettingsPlugin-test2.xml")}
 )
 public class ApplicationSettingsState implements PersistentStateComponent<ApplicationSettingsState> {
-    public Map<Number, Number> breakpoints = new HashMap();
-
-    public static ApplicationSettingsState getInstance() {
-        return ServiceManager.getService(ApplicationSettingsState.class);
-    }
+    public Map<Integer, Integer> breakpoints = new HashMap();
 
     @Nullable
     @Override
@@ -31,5 +27,9 @@ public class ApplicationSettingsState implements PersistentStateComponent<Applic
     @Override
     public void loadState(@NotNull ApplicationSettingsState state) {
         XmlSerializerUtil.copyBean(state, this);
+    }
+
+    public static ApplicationSettingsState getInstance() {
+        return ServiceManager.getService(ApplicationSettingsState.class);
     }
 }

@@ -3,7 +3,6 @@ package com.github.tiste.responsiveintellijplugin.settings;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBTextField;
 import com.intellij.util.ui.FormBuilder;
-import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 
@@ -14,12 +13,16 @@ public class ApplicationSettingsComponent {
     private final JBTextField secondBreakpoint = new JBTextField();
     private final JBTextField secondFontSize = new JBTextField();
 
-    public ApplicationSettingsComponent() {
+    public ApplicationSettingsComponent(String currentWindowSize) {
+        JBLabel windowSize = new JBLabel(currentWindowSize);
+
         mainPanel = FormBuilder.createFormBuilder()
                 .addLabeledComponent(new JBLabel("Enter first breakpoint: "), firstBreakpoint, 1, false)
                 .addLabeledComponent(new JBLabel("Enter first font size: "), firstFontSize, 1, false)
                 .addLabeledComponent(new JBLabel("Enter second breakpoint: "), secondBreakpoint, 1, false)
                 .addLabeledComponent(new JBLabel("Enter second font size: "), secondFontSize, 1, false)
+                .addSeparator()
+                .addLabeledComponent(new JBLabel("Actual window size: "), windowSize, 1, false)
                 .addComponentFillVertically(new JPanel(), 0)
                 .getPanel();
     }
@@ -32,23 +35,19 @@ public class ApplicationSettingsComponent {
         return firstBreakpoint;
     }
 
-    @NotNull
-    public Number getFirstBreakpoint() {
+    public int getFirstBreakpoint() {
         return Integer.parseInt(firstBreakpoint.getText());
     }
 
-    @NotNull
-    public Number getFirstFontSize() {
+    public int getFirstFontSize() {
         return Integer.parseInt(firstFontSize.getText());
     }
 
-    @NotNull
-    public Number getSecondBreakpoint() {
+    public int getSecondBreakpoint() {
         return Integer.parseInt(secondBreakpoint.getText());
     }
 
-    @NotNull
-    public Number getSecondFontSize() {
+    public int getSecondFontSize() {
         return Integer.parseInt(secondFontSize.getText());
     }
 

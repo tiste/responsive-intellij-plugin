@@ -14,6 +14,8 @@ This plugin allows you to think your IDE as a web browser (media queries): set b
 Font size will change automatically, depending on your IDE width.
 <!-- Plugin description end -->
 
+![Demo](/assets/demo.png)
+
 ## Installation
 
 - Using IDE built-in plugin system:

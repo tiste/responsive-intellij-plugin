@@ -1,5 +1,6 @@
 package com.github.tiste.responsiveintellijplugin.settings;
 
+import com.github.tiste.responsiveintellijplugin.services.ApplicationEditorFontPreferences;
 import com.intellij.openapi.components.PersistentStateComponent;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.components.State;
@@ -12,25 +13,25 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @State(
-        name = "com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsState",
-        storages = {@Storage("ResponsiveSettingsPlugin-test2.xml")}
+        name = "com.github.tiste.responsiveintellijplugin.settings.ApplicationState",
+        storages = {@Storage("ResponsiveSettingsPlugin.xml")}
 )
-public class ApplicationSettingsState implements PersistentStateComponent<ApplicationSettingsState> {
+public class ApplicationState implements PersistentStateComponent<ApplicationState> {
     public LinkedHashMap<Integer, Integer> breakpoints = new LinkedHashMap();
 
     @Nullable
     @Override
-    public ApplicationSettingsState getState() {
+    public ApplicationState getState() {
         return this;
     }
 
     @Override
-    public void loadState(@NotNull ApplicationSettingsState state) {
+    public void loadState(@NotNull ApplicationState state) {
         XmlSerializerUtil.copyBean(state, this);
     }
 
-    public static ApplicationSettingsState getInstance() {
-        return ServiceManager.getService(ApplicationSettingsState.class);
+    public static ApplicationState getInstance() {
+        return ServiceManager.getService(ApplicationState.class);
     }
 
     public int findBreakpointValue(int windowSize) {
@@ -45,6 +46,6 @@ public class ApplicationSettingsState implements PersistentStateComponent<Applic
             }
         }
 
-        return breakpoints.get(closerBreakpoint);
+        return breakpoints.getOrDefault(closerBreakpoint, ApplicationEditorFontPreferences.DEFAULT_FONT_SIZE);
     }
 }

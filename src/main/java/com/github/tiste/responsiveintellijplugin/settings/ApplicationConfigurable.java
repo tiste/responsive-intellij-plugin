@@ -8,8 +8,8 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import java.util.LinkedHashMap;
 
-public class ApplicationSettingsConfigurable implements Configurable {
-    private ApplicationSettingsComponent settingsComponent;
+public class ApplicationConfigurable implements Configurable {
+    private ApplicationComponent settingsComponent;
 
     @Override
     public @NlsContexts.ConfigurableName String getDisplayName() {
@@ -19,13 +19,13 @@ public class ApplicationSettingsConfigurable implements Configurable {
     @Override
     public @Nullable JComponent createComponent() {
         WindowProjectService windowProjectService = WindowProjectService.getInstance();
-        settingsComponent = new ApplicationSettingsComponent(Integer.toString(windowProjectService.getCurrentProjectWidth()));
+        settingsComponent = new ApplicationComponent(Integer.toString(windowProjectService.getCurrentProjectWidth()));
         return settingsComponent.getPanel();
     }
 
     @Override
     public boolean isModified() {
-        ApplicationSettingsState settings = ApplicationSettingsState.getInstance();
+        ApplicationState settings = ApplicationState.getInstance();
         LinkedHashMap<Integer, Integer> compare = new LinkedHashMap();
 
         for (int i = 0; i < settingsComponent.textFields.length; i++) {
@@ -37,7 +37,7 @@ public class ApplicationSettingsConfigurable implements Configurable {
 
     @Override
     public void apply() {
-        ApplicationSettingsState settings = ApplicationSettingsState.getInstance();
+        ApplicationState settings = ApplicationState.getInstance();
         settings.breakpoints.clear();
 
         for (int i = 0; i < settingsComponent.textFields.length; i++) {

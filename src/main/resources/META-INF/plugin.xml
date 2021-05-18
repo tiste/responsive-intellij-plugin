@@ -9,15 +9,15 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <applicationService
-                serviceImplementation="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsState"/>
+                serviceImplementation="com.github.tiste.responsiveintellijplugin.settings.ApplicationState"/>
         <applicationService
                 serviceImplementation="com.github.tiste.responsiveintellijplugin.services.ApplicationEditorFontPreferences"/>
         <applicationService
                 serviceImplementation="com.github.tiste.responsiveintellijplugin.services.WindowProjectService"/>
 
         <applicationConfigurable parentId="tools"
-                                 instance="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsConfigurable"
-                                 id="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsConfigurable"
+                                 instance="com.github.tiste.responsiveintellijplugin.settings.ApplicationConfigurable"
+                                 id="com.github.tiste.responsiveintellijplugin.settings.ApplicationConfigurable"
                                  displayName="Responsive"/>
     </extensions>
 

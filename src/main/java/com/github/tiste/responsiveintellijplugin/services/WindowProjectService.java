@@ -1,8 +1,7 @@
 package com.github.tiste.responsiveintellijplugin.services;
 
-import com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsState;
+import com.github.tiste.responsiveintellijplugin.settings.ApplicationState;
 import com.intellij.openapi.components.ServiceManager;
-import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManager;
 import com.intellij.openapi.wm.WindowManager;
@@ -24,12 +23,15 @@ public class WindowProjectService {
             }
         }
 
-        assert activeProject != null;
-        return FileEditorManager.getInstance(activeProject).getSelectedTextEditor().getComponent().getWidth();
+        try {
+            return WindowManager.getInstance().getIdeFrame(activeProject).getComponent().getWidth();
+        } catch (NullPointerException e) {
+            return 0;
+        }
     }
 
     public void updateFontForSize(int width) {
-        ApplicationSettingsState settings = ApplicationSettingsState.getInstance();
+        ApplicationState settings = ApplicationState.getInstance();
         ApplicationEditorFontPreferences applicationEditorFontPreferences = ApplicationEditorFontPreferences.getInstance();
 
         int fontSize = settings.findBreakpointValue(width);

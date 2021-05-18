@@ -1,11 +1,10 @@
 package com.github.tiste.responsiveintellijplugin.listeners;
 
 import com.github.tiste.responsiveintellijplugin.services.WindowProjectService;
-import com.intellij.openapi.editor.Editor;
-import com.intellij.openapi.editor.EditorFactory;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.project.ProjectManagerListener;
 import com.intellij.openapi.startup.StartupManager;
+import com.intellij.openapi.wm.WindowManager;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.event.ComponentAdapter;
@@ -17,15 +16,12 @@ public class ApplicationProjectManagerListener implements ProjectManagerListener
         ProjectManagerListener.super.projectOpened(project);
 
         StartupManager.getInstance(project).runAfterOpened(() -> {
-            Editor[] editors = EditorFactory.getInstance().getAllEditors();
-            for (Editor editor : editors) {
-                editor.getComponent().addComponentListener(new ComponentAdapter() {
-                    @Override
-                    public void componentResized(ComponentEvent e) {
-                        WindowProjectService.getInstance().updateFontForSize(e.getComponent().getWidth());
-                    }
-                });
-            }
+            WindowManager.getInstance().getIdeFrame(project).getComponent().addComponentListener(new ComponentAdapter() {
+                @Override
+                public void componentResized(ComponentEvent e) {
+                    WindowProjectService.getInstance().updateFontForSize(e.getComponent().getWidth());
+                }
+            });
         });
     }
 }

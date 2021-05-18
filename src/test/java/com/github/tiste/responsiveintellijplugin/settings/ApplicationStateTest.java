@@ -6,34 +6,34 @@ import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
 
-class ApplicationSettingsStateTest {
+class ApplicationStateTest {
 
-    ApplicationSettingsState applicationSettingsState;
+    ApplicationState applicationState;
 
     @BeforeEach
     void init() {
-        applicationSettingsState = new ApplicationSettingsState();
+        applicationState = new ApplicationState();
 
         LinkedHashMap<Integer, Integer> testMap = new LinkedHashMap();
         testMap.put(0, 12);
         testMap.put(1000, 13);
         testMap.put(2000, 14);
 
-        applicationSettingsState.breakpoints = testMap;
+        applicationState.breakpoints = testMap;
     }
 
     @Test
     void findBreakpointValueWhenBreakpointIsLarge() {
-        Assert.assertEquals(12, applicationSettingsState.findBreakpointValue(900));
+        Assert.assertEquals(12, applicationState.findBreakpointValue(900));
     }
 
     @Test
     void findBreakpointValueWhenBreakpointIsClose() {
-        Assert.assertEquals(13, applicationSettingsState.findBreakpointValue(1200));
+        Assert.assertEquals(13, applicationState.findBreakpointValue(1200));
     }
 
     @Test
     void findBreakpointValueWhenBreakpointIsHuge() {
-        Assert.assertEquals(14, applicationSettingsState.findBreakpointValue(5000));
+        Assert.assertEquals(14, applicationState.findBreakpointValue(5000));
     }
 }

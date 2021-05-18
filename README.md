@@ -1,24 +1,17 @@
 # responsive-intellij-plugin
 
 ![Build](https://github.com/tiste/responsive-intellij-plugin/workflows/Build/badge.svg)
-[![Version](https://img.shields.io/jetbrains/plugin/v/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-[![Downloads](https://img.shields.io/jetbrains/plugin/d/PLUGIN_ID.svg)](https://plugins.jetbrains.com/plugin/PLUGIN_ID)
-
-## Template ToDo list
-- [x] Create a new [IntelliJ Platform Plugin Template][template] project.
-- [ ] Verify the [pluginGroup](/gradle.properties), [plugin ID](/src/main/resources/META-INF/plugin.xml) and [sources package](/src/main/kotlin).
-- [ ] Review the [Legal Agreements](https://plugins.jetbrains.com/docs/marketplace/legal-agreements.html).
-- [ ] [Publish a plugin manually](https://plugins.jetbrains.com/docs/intellij/publishing-plugin.html?from=IJPluginTemplate) for the first time.
-- [ ] Set the Plugin ID in the above README badges.
-- [ ] Set the [Deployment Token](https://plugins.jetbrains.com/docs/marketplace/plugin-upload.html).
-- [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
+[![Version](https://img.shields.io/jetbrains/plugin/v/16813.svg)](https://plugins.jetbrains.com/plugin/16813)
+[![Downloads](https://img.shields.io/jetbrains/plugin/d/16813.svg)](https://plugins.jetbrains.com/plugin/16813)
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
+This plugin aims to simplify your everyday life if you are often changing screen (from big to small, and reverse), and struggling with your font size.
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+On big screens, you may want big font size, and on common screens, it can be smaller. 
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
+This plugin allows you to think your IDE as a web browser (media queries): set breakpoints (e.g. 0px, 1200px, 1980px), and set suitable font size for these dimensions.
+
+Font size will change automatically, depending on your IDE width.
 <!-- Plugin description end -->
 
 ## Installation

@@ -1,5 +1,6 @@
 package com.github.tiste.responsiveintellijplugin.services;
 
+import com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsState;
 import com.intellij.openapi.components.ServiceManager;
 import com.intellij.openapi.fileEditor.FileEditorManager;
 import com.intellij.openapi.project.Project;
@@ -9,6 +10,9 @@ import com.intellij.openapi.wm.WindowManager;
 import java.awt.*;
 
 public class WindowProjectService {
+    public static WindowProjectService getInstance() {
+        return ServiceManager.getService(WindowProjectService.class);
+    }
 
     public int getCurrentProjectWidth() {
         Project[] projects = ProjectManager.getInstance().getOpenProjects();
@@ -24,7 +28,11 @@ public class WindowProjectService {
         return FileEditorManager.getInstance(activeProject).getSelectedTextEditor().getComponent().getWidth();
     }
 
-    public static WindowProjectService getInstance() {
-        return ServiceManager.getService(WindowProjectService.class);
+    public void updateFontForSize(int width) {
+        ApplicationSettingsState settings = ApplicationSettingsState.getInstance();
+        ApplicationEditorFontPreferences applicationEditorFontPreferences = ApplicationEditorFontPreferences.getInstance();
+
+        int fontSize = settings.findBreakpointValue(width);
+        applicationEditorFontPreferences.setFontSize(fontSize);
     }
 }

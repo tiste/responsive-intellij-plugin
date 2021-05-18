@@ -8,7 +8,7 @@ import com.intellij.util.xmlb.XmlSerializerUtil;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @State(
@@ -16,7 +16,7 @@ import java.util.Map;
         storages = {@Storage("ResponsiveSettingsPlugin-test2.xml")}
 )
 public class ApplicationSettingsState implements PersistentStateComponent<ApplicationSettingsState> {
-    public Map<Integer, Integer> breakpoints = new HashMap();
+    public LinkedHashMap<Integer, Integer> breakpoints = new LinkedHashMap();
 
     @Nullable
     @Override
@@ -31,5 +31,20 @@ public class ApplicationSettingsState implements PersistentStateComponent<Applic
 
     public static ApplicationSettingsState getInstance() {
         return ServiceManager.getService(ApplicationSettingsState.class);
+    }
+
+    public int findBreakpointValue(int windowSize) {
+        int minDistance = Integer.MAX_VALUE;
+        int closerBreakpoint = 0;
+
+        for (Map.Entry<Integer, Integer> entry : breakpoints.entrySet()) {
+            int distance = windowSize - entry.getKey();
+            if (distance > 0 && distance < minDistance) {
+                minDistance = distance;
+                closerBreakpoint = entry.getKey();
+            }
+        }
+
+        return breakpoints.get(closerBreakpoint);
     }
 }

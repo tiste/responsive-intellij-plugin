@@ -20,4 +20,9 @@
                                  id="com.github.tiste.responsiveintellijplugin.settings.ApplicationSettingsConfigurable"
                                  displayName="Responsive"/>
     </extensions>
+
+    <applicationListeners>
+        <listener class="com.github.tiste.responsiveintellijplugin.listeners.ApplicationProjectManagerListener"
+                  topic="com.intellij.openapi.project.ProjectManagerListener"/>
+    </applicationListeners>
 </idea-plugin>

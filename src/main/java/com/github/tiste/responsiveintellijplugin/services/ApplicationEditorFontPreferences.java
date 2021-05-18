@@ -8,12 +8,16 @@ import com.intellij.openapi.editor.colors.impl.FontPreferencesImpl;
 
 public class ApplicationEditorFontPreferences {
     private final FontPreferencesImpl fontPreferences;
-    static final int DEFAULT_FONT_SIZE = EditorFontsConstants.getDefaultEditorFontSize();
+    public static final int DEFAULT_FONT_SIZE = EditorFontsConstants.getDefaultEditorFontSize();
     static final int MIN_FONT_SIZE = EditorFontsConstants.getMinEditorFontSize();
     static final int MAX_FONT_SIZE = EditorFontsConstants.getMaxEditorFontSize();
 
     public ApplicationEditorFontPreferences() {
         this.fontPreferences = (FontPreferencesImpl) AppEditorFontOptions.getInstance().getFontPreferences();
+    }
+
+    public static ApplicationEditorFontPreferences getInstance() {
+        return ServiceManager.getService(ApplicationEditorFontPreferences.class);
     }
 
     public void setFontSize(int fontSize) {
@@ -29,9 +33,5 @@ public class ApplicationEditorFontPreferences {
         }
 
         return false;
-    }
-
-    public static ApplicationEditorFontPreferences getInstance() {
-        return ServiceManager.getService(ApplicationEditorFontPreferences.class);
     }
 }

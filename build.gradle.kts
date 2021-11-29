@@ -23,7 +23,7 @@ repositories {
 }
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.8.2"))
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
 }
 
 // Configure gradle-intellij-plugin plugin.

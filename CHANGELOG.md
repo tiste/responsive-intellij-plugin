@@ -3,6 +3,8 @@
 # responsive-intellij-plugin Changelog
 
 ## [Unreleased]
+
+## [0.1.0]
 ### Changed
 - Update `platformVersion` to `2021.1.3` for compatibility with Apple M1
 - Change since/until build to `211-213.*` (2021.1 - 2021.3)

@@ -3,6 +3,8 @@
 # responsive-intellij-plugin Changelog
 
 ## [Unreleased]
+
+## [0.1.1]
 ### Removed
 - Remove `pluginUntilBuild`
 
@@ -30,15 +32,18 @@
 - Update `pluginUntilBuild` to include `213.*` (2021.3.*)
 - Upgrade Gradle Wrapper to `7.3`
 
+
 ### Fixed
 - Fixed passing change notes from `CHANGELOG.md` to the Release Draft
 - Fixed passing updated change notes from the Release Draft to `patchChangelog` Gradle task
 - Fixed `QODANA_SHOW_REPORT` environment variable resolving for Gradle `6.x`
 
+
 ### Removed
 - Removed the `pluginVerifierIdeVersions` configuration to use default IDEs list provided by the `listProductsReleases` task for `runPluginVerifier`
 - Removed `platformDownloadSources` from Gradle configuration to use default value
 - Removed `updateSinceUntilBuild.set(true)` from Gradle configuration to use default value
+
 
 ### Added
 - GitHub Actions: Collect Qodana/Tests/Plugin Verifier results as artifacts
@@ -54,6 +59,7 @@
 ## [0.0.3]
 ### Removed
 - Removed `detekt`/`ktlint` integration
+
 
 ### Changed
 - GitHub Actions: Use Java 11

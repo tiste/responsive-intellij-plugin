@@ -9,7 +9,7 @@ import javax.swing.*;
 import java.util.LinkedHashMap;
 
 public class ApplicationConfigurable implements Configurable {
-    private ApplicationComponent settingsComponent;
+    private SettingsComponent settingsComponent;
 
     @Override
     public @NlsContexts.ConfigurableName String getDisplayName() {
@@ -19,7 +19,7 @@ public class ApplicationConfigurable implements Configurable {
     @Override
     public @Nullable JComponent createComponent() {
         WindowProjectService windowProjectService = WindowProjectService.getInstance();
-        settingsComponent = new ApplicationComponent(Integer.toString(windowProjectService.getCurrentProjectWidth()));
+        settingsComponent = new SettingsComponent(Integer.toString(windowProjectService.getCurrentProjectWidth()));
         return settingsComponent.getPanel();
     }
 

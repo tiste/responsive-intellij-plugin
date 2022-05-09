@@ -10,7 +10,7 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApplicationComponent {
+public class SettingsComponent {
     private final JPanel mainPanel;
     private final JBTextField firstBreakpoint = new JBTextField("0");
     private final JBTextField firstFontSize = new JBTextField("" + ApplicationEditorFontPreferences.DEFAULT_FONT_SIZE);
@@ -20,7 +20,7 @@ public class ApplicationComponent {
     private final JBTextField thirdFontSize = new JBTextField("" + ApplicationEditorFontPreferences.DEFAULT_FONT_SIZE);
     final JBTextField[][] textFields = {{firstBreakpoint, firstFontSize}, {secondBreakpoint, secondFontSize}, {thirdBreakpoint, thirdFontSize}};
 
-    public ApplicationComponent(String currentWindowSize) {
+    public SettingsComponent(String currentWindowSize) {
         JBLabel windowSize = new JBLabel(currentWindowSize);
 
         mainPanel = FormBuilder.createFormBuilder()

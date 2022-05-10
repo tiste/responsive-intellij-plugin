@@ -1,6 +1,6 @@
 # responsive-intellij-plugin
 
-![Build](https://github.com/tiste/responsive-intellij-plugin/workflows/Build/badge.svg)
+[![Build](https://github.com/tiste/responsive-intellij-plugin/actions/workflows/build.yml/badge.svg)](https://github.com/tiste/responsive-intellij-plugin/actions/workflows/build.yml)
 [![Version](https://img.shields.io/jetbrains/plugin/v/16813.svg)](https://plugins.jetbrains.com/plugin/16813)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/16813.svg)](https://plugins.jetbrains.com/plugin/16813)
 

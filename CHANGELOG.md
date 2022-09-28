@@ -3,6 +3,8 @@
 # responsive-intellij-plugin Changelog
 
 ## [Unreleased]
+
+## [0.1.3]
 ### Added
 - Remove `pluginUntilBuild` to include all future versions
 
@@ -40,6 +42,7 @@
 
 
 
+
 ### Fixed
 - Fixed passing change notes from `CHANGELOG.md` to the Release Draft
 - Fixed passing updated change notes from the Release Draft to `patchChangelog` Gradle task
@@ -47,10 +50,12 @@
 
 
 
+
 ### Removed
 - Removed the `pluginVerifierIdeVersions` configuration to use default IDEs list provided by the `listProductsReleases` task for `runPluginVerifier`
 - Removed `platformDownloadSources` from Gradle configuration to use default value
 - Removed `updateSinceUntilBuild.set(true)` from Gradle configuration to use default value
+
 
 
 
@@ -68,6 +73,7 @@
 ## [0.0.3]
 ### Removed
 - Removed `detekt`/`ktlint` integration
+
 
 
 

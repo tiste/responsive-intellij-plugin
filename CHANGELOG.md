@@ -3,6 +3,8 @@
 # responsive-intellij-plugin Changelog
 
 ## [Unreleased]
+### Added
+- Update `pluginUntilBuild` to include `223.*`
 
 ## [0.1.3]
 ### Added

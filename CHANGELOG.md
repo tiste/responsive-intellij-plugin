@@ -3,6 +3,8 @@
 # responsive-intellij-plugin Changelog
 
 ## [Unreleased]
+### Added
+- Remove `pluginUntilBuild` to include all future versions
 
 ## [0.1.2]
 ### Added

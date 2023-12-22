@@ -4,7 +4,6 @@ import com.github.tiste.responsiveintellijplugin.services.ApplicationEditorFontP
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBTextField;
 import com.intellij.util.ui.FormBuilder;
-import org.apache.commons.lang.math.NumberUtils;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -47,11 +46,19 @@ public class SettingsComponent {
     }
 
     public int getBreakpointAtPosition(int position) {
-        return NumberUtils.toInt(textFields[position][0].getText(), 0);
+        try {
+            return Integer.parseInt(textFields[position][0].getText());
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
 
     public int getFontSizeAtPosition(int position) {
-        return NumberUtils.toInt(textFields[position][1].getText(), ApplicationEditorFontPreferences.DEFAULT_FONT_SIZE);
+        try {
+            return Integer.parseInt(textFields[position][1].getText());
+        } catch (NumberFormatException e) {
+            return ApplicationEditorFontPreferences.DEFAULT_FONT_SIZE;
+        }
     }
 
     public void reset() {

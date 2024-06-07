@@ -3,11 +3,13 @@
 # responsive-intellij-plugin Changelog
 
 ## Unreleased
+### Added
+- Update `pluginUntilBuild` to include `241.*`
 
 ## 0.1.7 - 2023-12-22
 
 ### Added
-- Update `pluginUntilBuild` to include `233O.*`
+- Update `pluginUntilBuild` to include `233.*`
 
 ## 0.1.6 - 2023-08-23
 

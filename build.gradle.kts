@@ -72,7 +72,7 @@ tasks {
     patchPluginXml {
         version.set(properties("pluginVersion"))
         sinceBuild.set(properties("pluginSinceBuild"))
-        untilBuild.set(properties("pluginUntilBuild"))
+        untilBuild.set(provider { null })
 
         // Extract the <!-- Plugin description --> section from README.md and provide for the plugin's manifest
         pluginDescription.set(
@@ -124,5 +124,9 @@ tasks {
         testLogging {
             events("passed", "skipped", "failed")
         }
+    }
+
+    runPluginVerifier {
+        ideVersions.set(listOf(properties("platformVersion")))
     }
 }

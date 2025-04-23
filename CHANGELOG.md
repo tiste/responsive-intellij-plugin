@@ -3,6 +3,9 @@
 # responsive-intellij-plugin Changelog
 
 ## Unreleased
+
+## 0.1.8 - 2024-06-07
+
 ### Added
 - Update `pluginUntilBuild` to include `241.*`
 

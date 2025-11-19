@@ -6,6 +6,11 @@
 ### Added
 - Update `pluginUntilBuild` to include all future versions
 
+## 0.1.11 - 2025-06-07
+
+### Added
+- Update `pluginUntilBuild` to include `241.*`
+
 ## 0.1.10 - 2025-06-07
 
 ### Added

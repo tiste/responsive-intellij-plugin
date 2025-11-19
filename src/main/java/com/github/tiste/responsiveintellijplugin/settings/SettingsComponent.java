@@ -64,7 +64,7 @@ public class SettingsComponent {
     public void reset() {
         ApplicationState settings = ApplicationState.getInstance();
 
-        List keys = new ArrayList(settings.breakpoints.keySet());
+        List<Object> keys = new ArrayList<>(settings.breakpoints.keySet());
         for (int i = 0; i < keys.size(); i++) {
             Object breakpoint = keys.get(i);
 

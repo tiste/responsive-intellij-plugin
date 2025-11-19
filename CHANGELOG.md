@@ -3,6 +3,9 @@
 # responsive-intellij-plugin Changelog
 
 ## Unreleased
+
+## 0.1.12 - 2025-11-19
+
 ### Added
 - Update `pluginUntilBuild` to include all future versions
 
